@@ -984,15 +984,27 @@ html{max-width:100%}
 <body>
 <script>
 (function(){
+  /* Shows a red message only for errors from this app. Errors from other scripts
+     (hosting toolbars, browser extensions) and network failures are ignored. */
+  var here=location.href.split("#")[0];
   function show(msg){
     try{
       var d=document.getElementById("errBanner");
       if(!d){d=document.createElement("div");d.id="errBanner";d.style.cssText="position:fixed;left:0;right:0;top:0;z-index:99999;background:#b42318;color:#fff;font:13px/1.4 -apple-system,Helvetica,Arial,sans-serif;padding:calc(10px + env(safe-area-inset-top)) 14px 10px;white-space:pre-wrap;word-break:break-word";document.body?document.body.appendChild(d):document.documentElement.appendChild(d)}
       d.textContent="The app hit an error and could not finish loading.\nPlease send this message to support:\n"+msg;
-    }catch(e){}
+    }catch(x){}
   }
-  window.addEventListener("error",function(e){show((e.message||"Error")+(e.lineno?" (line "+e.lineno+")":""))});
-  window.addEventListener("unhandledrejection",function(e){show("Promise: "+(e.reason&&e.reason.message?e.reason.message:e.reason))});
+  window.addEventListener("error",function(e){
+    var f=e.filename||"";
+    if(f&&f.split("#")[0]!==here)return;
+    show((e.message||"Error")+(e.lineno?" (line "+e.lineno+")":""));
+  });
+  window.addEventListener("unhandledrejection",function(e){
+    var r=e.reason,m=String(r&&r.message?r.message:r),st=String(r&&r.stack?r.stack:"");
+    if(/fetch|network|load failed|abort|cancel/i.test(m))return;
+    if(st&&st.indexOf(here)<0)return;
+    show("Promise: "+m);
+  });
 })();
 </script>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
