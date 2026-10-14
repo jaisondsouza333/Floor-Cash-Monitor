@@ -8,8 +8,8 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
-<meta name="apple-mobile-web-app-title" content="Slot Cash Monitor">
-<title>Bill Validator Monitor</title>
+<meta name="apple-mobile-web-app-title" content="Floor Cash Monitor">
+<title>Floor Cash Monitor</title>
 <style>
 :root{
   --bg:#f3f5f9;--ink:#0f172a;--mut:#64748b;--line:#e3e8f0;--card:#fff;
@@ -1154,7 +1154,7 @@ html{max-width:100%;background:#e8eef5}
 
 <div class="app">
   <aside class="side">
-    <div class="brand"><div class="mark">$</div><div><b>Slot Cash Monitor</b><span>Casino Operations</span></div></div>
+    <div class="brand"><div class="mark">$</div><div><b>Floor Cash Monitor</b><span>Casino Operations</span></div></div>
     <nav class="nav">
       <div class="nav-h">Monitoring</div>
       <a class="active" data-nav="dash"><i><svg class="ic"><use href="#i-grid"/></svg></i><span class="nl">BV Dashboard</span></a>
@@ -1928,7 +1928,7 @@ function deliverFile(csv,name){
   $("#mCsv").classList.add("show");$("#scrim").classList.add("show");
 }
 function exportCsv(){
-  deliverFile(csvRows().map(function(r){return r.map(function(c){return '"'+String(c).replace(/"/g,'""')+'"'}).join(",")}).join("\n"),"bv-can-report.csv");
+  deliverFile(csvRows().map(function(r){return r.map(function(c){return '"'+String(c).replace(/"/g,'""')+'"'}).join(",")}).join("\n"),"floor-cash-report.csv");
 }
 function openAddMachine(){
   var n=1001+machines.length;while(byId("SL-"+n))n++;
