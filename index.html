@@ -1115,6 +1115,48 @@ html{max-width:100%;background:#e8eef5}
 .su-role.on{background:#101826;border-color:#101826;color:#fff}
 .su-role:disabled{opacity:.4;cursor:default}
 #mRole .m-foot{position:sticky;bottom:0;background:#fff;padding:12px 0 2px;margin-top:14px;border-top:1px solid var(--line);align-items:center}
+
+/* ---- eDrop and auto dispatch ---- */
+.edgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:14px;margin-bottom:14px}
+.edc{background:#fff;border:1px solid #fecaca;border-radius:12px;padding:14px}
+.edc-h{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+.edc-h b{font-size:15px}
+.edc-h .sub{display:block;color:var(--mut);font-size:12.5px;margin-top:2px}
+.edc-meta{margin:8px 0 2px;color:var(--mut);font-size:12.5px;display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.edsteps{display:grid;grid-template-columns:repeat(6,1fr);gap:4px;margin:10px 0}
+.edsteps div{text-align:center;font-size:10.5px;color:var(--mut);min-width:0}
+.edsteps i{display:block;height:6px;border-radius:99px;background:#e5e9f0;margin-bottom:4px}
+.edsteps small{display:block;font-size:10px;opacity:.85;white-space:nowrap}
+.edsteps .done i{background:var(--ok)}
+.edsteps .cur i{background:var(--crit)}
+.edsteps .warn i{background:var(--warn)}
+.edsteps .done,.edsteps .cur,.edsteps .warn{color:var(--ink)}
+.edwho{background:#f8fafc;border:1px solid var(--line);border-radius:10px;padding:9px 11px;font-size:13px}
+.edwho small{display:block;color:var(--mut);font-size:12px;margin-top:2px}
+.edact{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;align-items:center}
+.edpick{display:inline-flex;gap:8px;flex-wrap:wrap;align-items:center;max-width:100%}
+.edpick select{max-width:100%;border:1px solid var(--line);border-radius:8px;padding:7px 8px;font-size:13px;background:#fff}
+.edoffer{background:#fff7ed;border:1px solid #fed7aa;border-radius:12px;padding:14px;margin-bottom:14px;display:flex;gap:14px;justify-content:space-between;align-items:center;flex-wrap:wrap}
+.edoffer b{font-size:16px}
+.edrules{display:grid;gap:8px}
+.edrules div{display:flex;gap:10px;align-items:flex-start;font-size:13px}
+.edrules b{flex:0 0 22px;height:22px;border-radius:99px;background:#e6f4f2;color:var(--brand);font-size:12px;display:inline-flex;align-items:center;justify-content:center}
+.edblk{border:1px solid #fecaca;background:var(--critbg);border-radius:12px;padding:10px 12px;margin-top:12px;font-size:13px}
+.edblk h5{margin:0 0 6px;font-size:13px}
+.pill.ed-raised,.pill.ed-unassigned{background:var(--critbg);color:var(--crit)}
+.pill.ed-offered{background:#fef3c7;color:#92400e}
+.pill.ed-accepted,.pill.ed-enroute{background:#dbeafe;color:#1d4ed8}
+.pill.ed-atmachine{background:#e0f2fe;color:#075985}
+.pill.ed-dropped{background:#dcfce7;color:#166534}
+.pill.ed-cancelled{background:#e2e8f0;color:#475569}
+@media(max-width:640px){.edgrid{grid-template-columns:1fr}.edsteps div{font-size:9.5px}.edsteps small{font-size:9px}}
+.pill.dp-offered{background:#fef3c7;color:#92400e}
+.pill.dp-raised,.pill.dp-unassigned{background:var(--critbg);color:var(--crit)}
+.pill.dp-accepted{background:#dbeafe;color:#1d4ed8}
+.pill.dp-done{background:#dcfce7;color:#166534}
+.pill.dp-cancelled{background:#e2e8f0;color:#475569}
+.nchip.e{background:#fee2e2;color:#b91c1c}.nchip.b{background:#dbeafe;color:#1d4ed8}
+.dpc{border-color:var(--line)}
 </style>
 </head>
 <body>
@@ -1154,6 +1196,8 @@ html{max-width:100%;background:#e8eef5}
 <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3.2 5 5.8v5.7c0 4.3 2.9 7.3 7 9.3 4.1-2 7-5 7-9.3V5.8l-7-2.6Z"/><path d="M12 8.2v4.3M12 15.5h.01"/></symbol>
 <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></symbol>
 <symbol id="i-pulse" viewBox="0 0 24 24"><path d="M3 12h4l2.4-6 4.2 12 2.4-6H21"/></symbol>
+<symbol id="i-siren" viewBox="0 0 24 24"><path d="M7 18v-6a5 5 0 0 1 10 0v6"/><path d="M5 21h14M12 3v2M4.6 6.6l1.4 1.4M19.4 6.6 18 8"/></symbol>
+<symbol id="i-dispatch" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></symbol>
 <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13.2 3 5.5 13.4h5.6L10.3 21l8.2-10.6h-5.7L13.2 3Z"/></symbol>
 <symbol id="i-chip" viewBox="0 0 24 24"><rect x="6.5" y="6.5" width="11" height="11" rx="2.2"/><path d="M9.5 3.5v3M14.5 3.5v3M9.5 17.5v3M14.5 17.5v3M3.5 9.5h3M3.5 14.5h3M17.5 9.5h3M17.5 14.5h3"/></symbol>
 <symbol id="i-route" viewBox="0 0 24 24"><circle cx="6.5" cy="18" r="2.5"/><circle cx="17.5" cy="6" r="2.5"/><path d="M9 18h6.2a3 3 0 0 0 0-6H8.8a3 3 0 0 1 0-6H15"/></symbol>
@@ -1189,6 +1233,8 @@ html{max-width:100%;background:#e8eef5}
       <div class="nav-h">Cash &amp; downtime</div>
       <a data-nav="custody"><i><svg class="ic"><use href="#i-lock"/></svg></i><span class="nl">Cash Custody</span><span class="badge" id="navC" style="display:none">0</span></a>
       <a data-nav="forecast"><i><svg class="ic"><use href="#i-trend"/></svg></i><span class="nl">Forecast &amp; Drops</span></a>
+      <a data-nav="edrop"><i><svg class="ic"><use href="#i-siren"/></svg></i><span class="nl">eDrop</span><span class="badge" id="navE" style="display:none">0</span></a>
+      <a data-nav="dispatch"><i><svg class="ic"><use href="#i-dispatch"/></svg></i><span class="nl">Auto Dispatch</span><span class="badge" id="navD" style="display:none">0</span></a>
       <a data-nav="security"><i><svg class="ic"><use href="#i-shield"/></svg></i><span class="nl">Cash Security</span><span class="badge" id="navS" style="display:none">0</span></a>
       <a data-nav="downtime"><i><svg class="ic"><use href="#i-clock"/></svg></i><span class="nl">Downtime</span></a>
       <a data-nav="early"><i><svg class="ic"><use href="#i-pulse"/></svg></i><span class="nl">Early Warning</span></a>
@@ -1321,6 +1367,12 @@ html{max-width:100%;background:#e8eef5}
     <!-- FORECAST -->
     <div class="page" id="pageForecast" hidden><div id="fcBody"></div></div>
 
+    <!-- EDROP -->
+    <div class="page" id="pageEdrop" hidden><div id="edBody"></div></div>
+
+    <!-- AUTO DISPATCH -->
+    <div class="page" id="pageDispatch" hidden><div id="dpBody"></div></div>
+
     <!-- SECURITY -->
     <div class="page" id="pageSecurity" hidden>
       <div class="toolbar">
@@ -1419,6 +1471,8 @@ html{max-width:100%;background:#e8eef5}
     <a data-nav="notif"><i><svg class="ic"><use href="#i-bell"/></svg></i>Notifications <span class="badge" id="mnN" style="display:none">0</span></a>
     <a data-nav="custody"><i><svg class="ic"><use href="#i-lock"/></svg></i>Cash custody</a>
     <a data-nav="forecast"><i><svg class="ic"><use href="#i-trend"/></svg></i>Forecast &amp; drops</a>
+    <a data-nav="edrop"><i><svg class="ic"><use href="#i-siren"/></svg></i>eDrop</a>
+    <a data-nav="dispatch"><i><svg class="ic"><use href="#i-dispatch"/></svg></i>Auto dispatch</a>
     <a data-nav="security"><i><svg class="ic"><use href="#i-shield"/></svg></i>Cash security</a>
     <a data-nav="downtime"><i><svg class="ic"><use href="#i-clock"/></svg></i>Downtime</a>
     <a data-nav="early"><i><svg class="ic"><use href="#i-pulse"/></svg></i>Early warning</a>
@@ -1467,6 +1521,20 @@ html{max-width:100%;background:#e8eef5}
     </div>
     <div class="formerr" id="auErr"></div>
     <div class="m-foot"><button class="btn" data-close>Cancel</button><button class="btn primary" id="auSave">Add user</button></div>
+  </div>
+</div>
+
+<div class="modal" id="mEd" role="dialog" aria-label="Emergency drop">
+  <div class="m-head"><h3>Raise an emergency drop</h3><button class="btn" data-close>Close</button></div>
+  <div class="m-body">
+    <p class="sub2" style="margin-top:0">Auto dispatch offers this to the best collector right away, then to the next one if nobody accepts.</p>
+    <div class="form-g">
+      <label>Machine<input id="edMach" list="edList" placeholder="Type or pick a machine ID" autocomplete="off"></label><datalist id="edList"></datalist>
+      <label>Reason<select id="edReason"></select></label>
+      <label class="full">Note for the collector (optional)<textarea id="edNote" rows="2" placeholder="Anything the collector should know"></textarea></label>
+    </div>
+    <div class="formerr" id="edErr"></div>
+    <div class="m-foot"><button class="btn" data-close>Cancel</button><button class="btn primary" data-ed="save">Raise and dispatch</button></div>
   </div>
 </div>
 
@@ -1656,15 +1724,15 @@ var users=[
  {id:13,name:"Parker Diaz",email:"parker.diaz@casino.example",role:"Count Room",active:true,last:"Today, 7:32 AM"}
 ];
 var uid=14;
-var PAGE_DEFS=[["dash","BV Dashboard","Monitoring"],["kiosks","Cash Kiosk Dashboard","Monitoring"],["map","Floor Map","Monitoring"],["notif","Notifications","Monitoring"],["tasks","Tasks & SLA","Monitoring"],["notes","Notes","Monitoring"],["custody","Cash Custody","Cash & downtime"],["forecast","Forecast & Drops","Cash & downtime"],["security","Cash Security","Cash & downtime"],["downtime","Downtime","Cash & downtime"],["early","Early Warning","Cash & downtime"],["automation","Automation","Cash & downtime"],["machines","Machines","Management"],["routes","Route Planner","Management"],["reports","Reports","Management"],["alerts","Alert Thresholds","Management"],["users","Users & Roles","Management"]];
-var ACT_DEFS=[["task.create","Create and assign tasks"],["task.update","Update own tasks (start, complete a collection, cancel)"],["task.resolve","Resolve service tasks"],["can.empty","Mark cans emptied"],["cust.pull","Pull and transport cans (custody)"],["cust.receive","Receive and count cans (two-person sign-off)"],["sec.work","Investigate cash security alerts"],["settings","Change thresholds, SLA targets and automation"],["export","Export reports and audit logs"],["machines.edit","Add and edit machines"],["users.manage","Manage users and roles"]];
+var PAGE_DEFS=[["dash","BV Dashboard","Monitoring"],["kiosks","Cash Kiosk Dashboard","Monitoring"],["map","Floor Map","Monitoring"],["notif","Notifications","Monitoring"],["tasks","Tasks & SLA","Monitoring"],["notes","Notes","Monitoring"],["custody","Cash Custody","Cash & downtime"],["forecast","Forecast & Drops","Cash & downtime"],["edrop","eDrop","Cash & downtime"],["dispatch","Auto Dispatch","Cash & downtime"],["security","Cash Security","Cash & downtime"],["downtime","Downtime","Cash & downtime"],["early","Early Warning","Cash & downtime"],["automation","Automation","Cash & downtime"],["machines","Machines","Management"],["routes","Route Planner","Management"],["reports","Reports","Management"],["alerts","Alert Thresholds","Management"],["users","Users & Roles","Management"]];
+var ACT_DEFS=[["task.create","Create and assign tasks"],["task.update","Update own tasks (start, complete a collection, cancel)"],["task.resolve","Resolve service tasks"],["can.empty","Mark cans emptied"],["edrop.raise","Raise emergency drops (eDrop)"],["edrop.respond","Work emergency drops (on the way, at the machine, dropped)"],["edrop.cancel","Cancel emergency drops"],["dispatch.respond","Accept or decline dispatch offers"],["dispatch.manage","Assign, reassign and stop dispatches"],["cust.pull","Pull and transport cans (custody)"],["cust.receive","Receive and count cans (two-person sign-off)"],["sec.work","Investigate cash security alerts"],["settings","Change thresholds, SLA targets and automation"],["export","Export reports and audit logs"],["machines.edit","Add and edit machines"],["users.manage","Manage users and roles"]];
 var ALLP=PAGE_DEFS.map(function(d){return d[0]}),ALLA=ACT_DEFS.map(function(d){return d[0]});
 var ROLE_DEFS=[
  {name:"Administrator",desc:"Full access, including users, roles and settings.",builtin:true,locked:true,pages:ALLP.slice(),acts:ALLA.slice()},
- {name:"Floor Manager",desc:"Runs the floor: tasks, drops, custody, security and settings.",builtin:true,pages:ALLP.filter(function(k){return k!=="users"}),acts:["task.create","task.update","task.resolve","can.empty","cust.pull","cust.receive","sec.work","settings","export"]},
- {name:"Collector",desc:"Collects cans on the floor and takes them to the count room.",builtin:true,pages:["dash","kiosks","map","notif","tasks","notes","custody","routes"],acts:["task.update","can.empty","cust.pull"]},
- {name:"Service Technician",desc:"Fixes machine faults and offline machines.",builtin:true,pages:["dash","map","notif","tasks","notes","downtime","early","machines"],acts:["task.update","task.resolve"]},
- {name:"Security Officer",desc:"Watches cash security alerts and custody.",builtin:true,pages:["dash","map","notif","notes","custody","security","reports"],acts:["cust.pull","cust.receive","sec.work","export"]},
+ {name:"Floor Manager",desc:"Runs the floor: tasks, drops, custody, security and settings.",builtin:true,pages:ALLP.filter(function(k){return k!=="users"}),acts:["task.create","task.update","task.resolve","can.empty","cust.pull","cust.receive","sec.work","settings","export","edrop.raise","edrop.cancel","dispatch.manage"]},
+ {name:"Collector",desc:"Collects cans on the floor and takes them to the count room.",builtin:true,pages:["dash","kiosks","map","notif","tasks","notes","custody","edrop","dispatch","routes"],acts:["task.update","can.empty","cust.pull","edrop.respond","dispatch.respond"]},
+ {name:"Service Technician",desc:"Fixes machine faults and offline machines.",builtin:true,pages:["dash","map","notif","tasks","notes","downtime","early","machines","dispatch"],acts:["task.update","task.resolve","dispatch.respond"]},
+ {name:"Security Officer",desc:"Watches cash security alerts and custody.",builtin:true,pages:["dash","map","notif","notes","custody","security","edrop","reports"],acts:["cust.pull","cust.receive","sec.work","export","edrop.raise"]},
  {name:"Count Room",desc:"Receives, counts and signs off cans.",builtin:true,pages:["dash","notif","notes","custody","forecast","reports"],acts:["cust.receive","export"]},
  {name:"Viewer",desc:"Read-only view of the floor and reports.",builtin:true,pages:["dash","kiosks","map","notes","reports"],acts:["export"]}
 ];
@@ -2859,13 +2927,15 @@ function nearestAssign(type,m){
 }
 function autoTask(m,type,issue,prio,why){
   if(activeTask(m,type))return null;
-  var u=AUTO.nearest?nearestAssign(type,m):autoAssign(type),reason=AUTO.nearest?lastNear:"least busy";
+  var viaDp=dpEnabled(type==="service"?"service":"collection");
+  var u=viaDp?null:(AUTO.nearest?nearestAssign(type,m):autoAssign(type)),reason=AUTO.nearest?lastNear:"least busy";
   var t=newTask({type:type,mid:m.id,issue:issue,priority:prio||prioFor(m,type),uid:u,quiet:true,notes:"Created automatically: "+why});
   t.auto=true;
-  addHist(t,"Created automatically: "+why+(u?". Assigned to "+uname(u)+" ("+reason+")":". Nobody available, left unassigned"));
+  addHist(t,"Created automatically: "+why+(viaDp?". Auto dispatch is finding someone":u?". Assigned to "+uname(u)+" ("+reason+")":". Nobody available, left unassigned"));
   ev("info","Task "+t.id+" created automatically for "+m.id+": "+why+(u?". Assigned to "+uname(u):""),m.id,"Automatic task",null,t.id);
-  autoLog.unshift({t:simMs,kind:"task",tid:t.id,mid:m.id,text:typeLabel(type)+" task "+t.id+" for "+m.id+" ("+why+")"+(u?" assigned to "+uname(u)+" ("+reason+")":" left unassigned")});
+  autoLog.unshift({t:simMs,kind:"task",tid:t.id,mid:m.id,text:typeLabel(type)+" task "+t.id+" for "+m.id+" ("+why+")"+(viaDp?" sent to auto dispatch":u?" assigned to "+uname(u)+" ("+reason+")":" left unassigned")});
   if(u){sendMsg(u,"push","New "+type+" task "+t.id+" on "+m.id+" ("+issue+"). Due "+fmtTime(t.dueAt)+".");notifyUser(u,"New task assigned",t.id+": "+issue+" on "+m.id,{tid:t.id,mid:m.id})}
+  if(viaDp)dpNew(type,t,m);
   dirty=true;return t;
 }
 function autoFull(m){
@@ -3998,7 +4068,7 @@ function drawerBody(){
    '<div class="stat"><div class="l">Est. total value</div><div class="v">'+money(value(m))+'</div></div>'+
    '<div class="stat"><div class="l">Location</div><div class="v">'+esc(m.zone)+', '+m.bank+'</div></div>'+
    '<div class="stat"><div class="l">Can capacity</div><div class="v">'+num2(m.cap)+' items</div></div>'+
-  '</div><div class="chart"><h5>Fill level: last 24 hours and projection</h5>'+chartSVG(m)+'</div>'+smartBlock(m)+taskBlock(m)+noteBlock(m);
+  '</div><div class="chart"><h5>Fill level: last 24 hours and projection</h5>'+chartSVG(m)+'</div>'+edBlock(m)+smartBlock(m)+taskBlock(m)+noteBlock(m);
 }
 function drawerHead(){
   var m=byId(state.open);
@@ -4010,7 +4080,7 @@ function drawerFoot(){
   if(m.offline)h=svc.replace('class="btn"','class="btn primary"')+'<button class="btn" data-act="close">Close</button>';
   else{
     h=ct?'<button class="btn" data-act="unsched" data-id="'+m.id+'">Cancel collection task</button>':'<button class="btn" data-act="sched" data-id="'+m.id+'">Schedule collection</button>';
-    h+=svc+'<button class="btn primary" data-act="empty" data-id="'+m.id+'">Mark can emptied</button>';
+    h+=svc+edBtn(m)+'<button class="btn primary" data-act="empty" data-id="'+m.id+'">Mark can emptied</button>';
   }
   $("#dFoot").innerHTML=h;
 }
@@ -4147,6 +4217,8 @@ function renderCurrent(){
   else if(p==="early")renderEarly();
   else if(p==="automation")renderAutomation();
   else if(p==="kiosks")renderKiosks();
+  else if(p==="edrop")renderEdrop();
+  else if(p==="dispatch")renderDispatch();
   dirty=false;
 }
 function refreshAll(){
@@ -4171,6 +4243,8 @@ var PAGES={dash:["pageDash","Bill Validator Monitor","Cash and ticket can fill l
  downtime:["pageDowntime","Downtime","What downtime costs, and how much of it was preventable"],
  early:["pageEarly","Early Warning","Machines to fix before they fail"],
  automation:["pageAutomation","Automation","Automatic tasks, nearest-person assignment and escalation"],
+ edrop:["pageEdrop","eDrop (Emergency Drop)","Cans that must be emptied now, from alert to cash secured"],
+ dispatch:["pageDispatch","Auto Dispatch","Offers every job to the best person, then the next, then a manager"],
  kiosks:["pageKiosks","Cash Kiosk Dashboard","How the cash kiosks are performing: cassette levels, days to empty and collections"]};
 function showPage(p,view){
   if(!canPage(pageKey(p,view))){var hp=homePage();if(!(hp.p===p&&hp.view===view))toast("Your role can't open that screen","warn");p=hp.p;view=hp.view}
@@ -4212,6 +4286,7 @@ function tick(){
   });
   simIncidents(dtH);
   ksTick(dtH);
+  edTick();dpTick();
   $("#clock").textContent=fmtTime(simMs);
   if(changed)dirty=true;
   checkSla();checkEsc();checkSec();checkCustody();if(++ewN%5===0)ewTick();renderImpact();
@@ -4229,11 +4304,555 @@ function tick(){
   else if(p==="security"){if(dirty)renderSecurity()}
   else if(p==="automation"){auN++;if((dirty||auN%8===0)&&!typing())renderAutomation()}
   else if(p==="kiosks"){if(ksDirty)renderKiosks();else ksUpdate()}
+  else if(p==="edrop"){if(!typing())renderEdrop()}
+  else if(p==="dispatch"){if(!typing())renderDispatch()}
   dirty=false;
   if(state.open){drawerHead();drawerBody()}
   updateCustDetail();
   if($("#mQueue").classList.contains("show"))renderQueue();
 }
+
+/* ================= Auto Dispatch: offer, accept, retry, escalate ================= */
+var DP={n:201,list:[],log:[],cfg:{on:true,acceptMin:10,maxOffers:3,types:{edrop:true,collection:true,service:true}}};
+var DP_KIND={edrop:"Emergency drop",collection:"Critical collection",service:"Service task"};
+var DP_STATE={raised:"Starting",offered:"Offered",accepted:"Accepted",unassigned:"Needs a manager",done:"Done",cancelled:"Cancelled"};
+var DP_LIM={acceptMin:[1,60],maxOffers:[1,10]};
+function edRnd(n){var x=Math.sin(n*9301+49297)*233280;return x-Math.floor(x)}
+function fmtMS(ms){var s=Math.max(0,Math.round(ms/1000)),m=Math.floor(s/60),r=s%60;return m+"m "+(r<10?"0":"")+r+"s"}
+function dpAll(){return ED.list.concat(DP.list)}
+function dpById(id){return dpAll().filter(function(j){return j.id===id})[0]}
+function dpEnabled(kind){return !!(DP.cfg.on&&DP.cfg.types[kind])}
+function dpT0(j){return j.tm.raised||j.tm.created}
+function dpNum(j){return parseInt(j.id.slice(3),10)}
+function dpTask(j){return j.tid?tasks.filter(function(t){return t.id===j.tid})[0]:null}
+function dpLast(j){return j.offers[j.offers.length-1]}
+function dpPending(j){var o=dpLast(j);return j.state==="offered"&&o&&o.result==="pending"?o:null}
+function dpLive(j){return j.state==="offered"||j.state==="unassigned"}
+function dpHist(j,text){j.hist.push({t:simMs,text:text})}
+function dpLog(j,text,kind){
+  DP.log.unshift({t:simMs,id:j?j.id:null,text:text,kind:kind||"info"});if(DP.log.length>80)DP.log.pop();
+  autoLog.unshift({t:simMs,kind:"dispatch",mid:j?j.mid:null,tid:(j&&j.kind!=="edrop")?j.tid:null,text:text});if(autoLog.length>80)autoLog.pop();
+}
+function dpNoOne(j){return j.kind==="service"?"No technician is available":"No collector is available"}
+/* ---- who gets the offer ---- */
+function dpCands(j,m){
+  var tried={},busy={};
+  j.offers.forEach(function(o){tried[o.uid]=1});
+  ED.list.forEach(function(e){if(edActive(e)&&e.assignee&&e.id!==j.id)busy[e.assignee]=1});
+  var p=pool(j.kind==="service"?"service":"collection").filter(function(u){return u.onShift!==false&&!tried[u.id]&&!busy[u.id]});
+  var ok=p.filter(function(u){return uLoad(u)<AUTO.maxLoad}),src=ok.length?ok:p;
+  return src.map(function(u){
+    var zd=Math.abs(zoneIdx(u.zone||m.zone)-zoneIdx(m.zone)),ld=uLoad(u);
+    var live=tasks.some(function(t){return isActive(t)&&t.assignee===u.id&&t.status==="inprogress"});
+    var sc=100-zd*18-ld*7-(live?8:0)-(u.zone?0:12);
+    var where=u.zone===m.zone?"in "+m.zone:(u.zone?"in "+u.zone+", "+zd+" zone"+(zd>1?"s":"")+" away":"zone not set");
+    return{u:u,score:Math.max(1,Math.round(sc)),why:where+", "+(ld?ld+" open task"+(ld>1?"s":""):"no open tasks")};
+  }).sort(function(a,b){return b.score-a.score||a.u.id-b.u.id});
+}
+function dpStart(j){
+  if(dpEnabled(j.kind))dpOffer(j);
+  else{j.state="unassigned";dpHist(j,"Auto dispatch is off for this job type. Waiting for a manager");dpLog(j,j.id+" on "+j.mid+": auto dispatch is off for "+DP_KIND[j.kind].toLowerCase()+"s, waiting for a manager","escalate")}
+}
+function dpOffer(j){
+  var m=byId(j.mid),c=dpCands(j,m),n=j.offers.filter(function(o){return o.result!=="manual"}).length;
+  if(!c.length){dpEscalate(j,dpNoOne(j));return}
+  if(n>=DP.cfg.maxOffers){dpEscalate(j,"Nobody accepted after "+DP.cfg.maxOffers+" offers");return}
+  var x=c[0],u=x.u,k=dpNum(j);
+  var of={uid:u.id,at:simMs,deadline:simMs+DP.cfg.acceptMin*60000,result:"pending",score:x.score,why:x.why,ansAt:null};
+  var r=edRnd(k*7+u.id*13+j.offers.length);
+  of.will=r<0.78?"accept":(r<0.9?"decline":"ignore");
+  of.respondAt=simMs+(25+Math.floor(edRnd(u.id+j.offers.length*5+k)*95))*1000;
+  j.offers.push(of);j.state="offered";j.cur=u.id;if(!j.tm.offered)j.tm.offered=simMs;
+  dpHist(j,"Auto dispatch offered it to "+u.name+" ("+x.why+", score "+x.score+")");
+  dpLog(j,j.id+" on "+j.mid+" ("+DP_KIND[j.kind].toLowerCase()+"): offered to "+u.name+" ("+x.why+")","dispatch");
+  sendMsg(u.id,"push",j.kind==="edrop"?"EMERGENCY DROP "+j.id+": "+j.mid+" "+m.game+" is "+Math.floor(m.pct)+"% full. Accept within "+DP.cfg.acceptMin+" min.":"New "+DP_KIND[j.kind].toLowerCase()+" "+j.id+" on "+j.mid+" ("+(j.issue||"")+"). Accept within "+DP.cfg.acceptMin+" min.");
+  notifyUser(u.id,j.kind==="edrop"?"Emergency drop offer":"Dispatch offer",j.mid+" ("+m.game+", "+m.zone+"): "+(j.kind==="edrop"?"needs a drop now":(j.issue||DP_KIND[j.kind])),{mid:j.mid});
+}
+function dpEscalate(j,why){
+  j.state="unassigned";j.cur=null;j.assignee=null;j.sim=null;j.esc=true;
+  dpHist(j,why+". Sent to the Floor Managers to dispatch by hand");
+  dpLog(j,j.id+" on "+j.mid+": "+why+". Floor Managers alerted","escalate");
+  var seen={};supervisors().concat(admins()).forEach(function(u){
+    if(seen[u.id])return;seen[u.id]=1;
+    sendMsg(u.id,"sms",(j.kind==="edrop"?"EMERGENCY DROP ":"Dispatch ")+j.id+" ("+j.mid+") has nobody assigned. "+why+". Please dispatch by hand.");
+    notifyUser(u.id,j.kind==="edrop"?"Emergency drop needs a manager":"Dispatch needs a manager",j.id+" on "+j.mid+": "+why,{mid:j.mid});
+  });
+  ev(j.kind==="edrop"?"crit":"warn",j.id+" ("+j.mid+") needs a manager to dispatch. "+why,j.mid,DP_KIND[j.kind]+" needs a manager",null,j.tid);
+}
+function dpNew(type,t,m){
+  var j={id:"DP-"+(DP.n++),kind:type==="service"?"service":"collection",mid:m.id,game:m.game,zone:m.zone,bank:m.bank,issue:t.issue,tid:t.id,src:"auto",state:"raised",assignee:null,cur:null,offers:[],tm:{created:simMs},hist:[],sim:null,esc:false};
+  DP.list.unshift(j);if(DP.list.length>60)DP.list.pop();
+  t.dispatch=j.id;
+  dpHist(j,"Created for "+t.id+": "+t.issue);
+  dpStart(j);return j;
+}
+function dpAccept(j,uid,how){
+  var u=userById(uid),of=dpLast(j),t=dpTask(j);
+  if(how==="accept"&&of&&of.result==="pending"&&of.uid===uid){of.result="accepted";of.ansAt=simMs}
+  else if(how==="manual"){
+    if(of&&of.result==="pending")of.result="reassigned";
+    j.offers.push({uid:uid,at:simMs,deadline:null,result:"manual",score:null,why:"Assigned by a manager",ansAt:simMs});
+    if(!j.tm.offered)j.tm.offered=simMs;
+  }
+  j.assignee=uid;j.cur=uid;j.state="accepted";j.tm.accepted=simMs;
+  if(t&&isActive(t))assignTask(t,uid,true);
+  dpHist(j,u.name+(how==="manual"?" was assigned by a manager":" accepted"));
+  dpLog(j,j.id+" on "+j.mid+": "+u.name+(how==="manual"?" assigned by hand":" accepted in "+fmtMS(simMs-dpT0(j))),"accept");
+  ev("info",u.name+" "+(how==="manual"?"was sent to":"accepted")+" "+DP_KIND[j.kind].toLowerCase()+" "+j.id+" on "+j.mid,j.mid,"Dispatch accepted",null,j.tid);
+  if(j.kind==="edrop"){if(uid!==meId)edPlan(j);else j.sim=null}
+  dirty=true;
+}
+function dpDecline(j,uid){
+  var of=dpLast(j);if(!of||of.result!=="pending"||of.uid!==uid)return;
+  of.result="declined";of.ansAt=simMs;dpHist(j,uname(uid)+" declined");
+  dpLog(j,j.id+" on "+j.mid+": "+uname(uid)+" declined. Trying the next person","decline");
+  dpOffer(j);dirty=true;
+}
+function dpReassign(j){
+  var of=dpLast(j),t=dpTask(j);
+  if(of&&(of.result==="pending"||of.result==="accepted"||of.result==="manual"))of.result="reassigned";
+  if(t&&isActive(t)&&t.assignee)assignTask(t,null,true);
+  dpHist(j,"Reassigned by "+uname(meId)+(j.assignee?" (was "+uname(j.assignee)+")":""));
+  dpLog(j,j.id+" on "+j.mid+": reassigned by "+uname(meId),"reassign");
+  j.assignee=null;j.sim=null;j.tm.accepted=null;if(j.tm.enroute)j.tm.enroute=null;if(j.tm.atmachine)j.tm.atmachine=null;
+  if(dpEnabled(j.kind))dpOffer(j);else{j.state="unassigned";j.cur=null}
+  dirty=true;
+}
+function dpCancel(j){
+  j.state="cancelled";j.cur=null;
+  var of=dpLast(j);if(of&&of.result==="pending")of.result="cancelled";
+  dpHist(j,"Dispatch stopped by "+uname(meId));dpLog(j,j.id+" on "+j.mid+": dispatch stopped by "+uname(meId)+". The task stays open","cancel");
+  dirty=true;
+}
+function dpTick(){
+  dpAll().slice().forEach(function(j){
+    if(j.kind!=="edrop"){
+      var t=dpTask(j);
+      if(!t||!isActive(t)){
+        if(dpLive(j)){j.state="cancelled";dpHist(j,"Task closed before anyone accepted");dpLog(j,j.id+" on "+j.mid+": the task was closed before anyone accepted","cancel");dirty=true}
+        else if(j.state==="accepted"){j.state="done";dirty=true}
+        return;
+      }
+      if(t.assignee&&dpLive(j)){
+        var o0=dpLast(j);if(o0&&o0.result==="pending")o0.result="reassigned";
+        j.offers.push({uid:t.assignee,at:simMs,deadline:null,result:"manual",score:null,why:"Assigned by hand",ansAt:simMs});
+        j.assignee=t.assignee;j.cur=t.assignee;j.state="accepted";j.tm.accepted=simMs;
+        dpHist(j,uname(t.assignee)+" was assigned by hand");dpLog(j,j.id+" on "+j.mid+": "+uname(t.assignee)+" assigned by hand","accept");dirty=true;return;
+      }
+    }
+    if(j.state==="offered"){
+      var of=dpPending(j);if(!of)return;
+      if(of.uid!==meId&&simMs>=of.respondAt){
+        if(of.will==="accept"){dpAccept(j,of.uid,"accept");return}
+        if(of.will==="decline"){dpDecline(j,of.uid);return}
+      }
+      if(simMs>=of.deadline){
+        of.result="timeout";dpHist(j,uname(of.uid)+" did not respond in "+DP.cfg.acceptMin+" min");
+        dpLog(j,j.id+" on "+j.mid+": "+uname(of.uid)+" did not respond. Trying the next person","timeout");
+        dpOffer(j);dirty=true;
+      }
+    }
+  });
+  dpBadge();
+}
+function dpBadge(){var n=dpAll().filter(dpLive).length,e=$("#navD");if(e){e.style.display=n?"":"none";e.textContent=n}}
+function dpStats(){
+  var day=simMs-24*3600000,jobs=dpAll().filter(function(j){return dpT0(j)>=day}),sent=0,acc=0,dec=0,none=0,tsum=0,tn=0,esc=0;
+  jobs.forEach(function(j){
+    if(j.esc)esc++;
+    j.offers.forEach(function(o){
+      if(o.result==="manual")return;sent++;
+      if(o.result==="accepted"){acc++;if(o.ansAt){tsum+=o.ansAt-o.at;tn++}}
+      else if(o.result==="declined")dec++;else if(o.result==="timeout")none++;
+    });
+  });
+  var answered=acc+dec+none;
+  return{sent:sent,rate:answered?Math.round(acc/answered*100):null,avg:tn?tsum/tn:0,esc:esc,live:dpAll().filter(dpLive).length};
+}
+function dpPeople(){
+  var map={};
+  dpAll().forEach(function(j){j.offers.forEach(function(o){
+    if(o.result==="manual")return;
+    var r=map[o.uid]||(map[o.uid]={uid:o.uid,n:0,acc:0,dec:0,none:0,ts:0,tn:0});
+    r.n++;
+    if(o.result==="accepted"){r.acc++;if(o.ansAt){r.ts+=o.ansAt-o.at;r.tn++}}
+    else if(o.result==="declined")r.dec++;else if(o.result==="timeout")r.none++;
+  })});
+  return Object.keys(map).map(function(k){return map[k]}).sort(function(a,b){return b.n-a.n});
+}
+/* ---- Auto Dispatch page ---- */
+function dpWhoHTML(j,m){
+  var of=dpPending(j),u=j.assignee?userById(j.assignee):null;
+  if(of){
+    var left=Math.max(0,Math.ceil((of.deadline-simMs)/60000)),nx=dpCands(j,m).slice(0,2);
+    return'<b>Offered to '+esc(uname(of.uid))+'</b><small>'+esc(of.why)+' · score '+of.score+' · '+left+' min left to accept · offer '+j.offers.length+' of '+DP.cfg.maxOffers+'</small>'+
+      (nx.length?'<small>Next in line: '+nx.map(function(c){return esc(c.u.name)+' ('+c.score+')'}).join(", ")+'</small>':'<small>Nobody else is available after this offer</small>');
+  }
+  if(j.state==="unassigned")return'<b>Waiting for a manager</b><small>'+(dpEnabled(j.kind)?"Nobody accepted. Pick someone below.":"Auto dispatch is off for this job type. Pick someone below.")+'</small>';
+  if(u){
+    var at;
+    if(j.kind==="edrop")at=j.state==="accepted"?"Accepted in "+fmtMS(j.tm.accepted-dpT0(j)):j.state==="enroute"?"On the way since "+fmtTime(j.tm.enroute):"At the machine since "+fmtTime(j.tm.atmachine);
+    else at="Accepted in "+fmtMS(j.tm.accepted-dpT0(j));
+    return'<b>'+esc(u.name)+' · '+(j.kind==="edrop"?ED_STATE[j.state]:DP_STATE[j.state])+'</b><small>'+at+(u.zone?' · '+esc(u.zone):'')+'</small>';
+  }
+  return'<b>Waiting</b>';
+}
+function dpActions(j,m){
+  var of=dpPending(j),act="";
+  if(of&&of.uid===meId)act+='<button class="btn primary" data-dp="accept" data-jid="'+j.id+'" data-perm="dispatch.respond">Accept</button><button class="btn" data-dp="decline" data-jid="'+j.id+'" data-perm="dispatch.respond">Decline</button>';
+  if(j.state==="unassigned"){
+    var cs=dpCands(j,m);
+    act+='<span data-perm="dispatch.manage" class="edpick"><select id="dpSel-'+j.id+'" aria-label="Person for '+j.id+'">'+(cs.length?cs.map(function(c){return'<option value="'+c.u.id+'">'+esc(c.u.name)+' · '+esc(c.why)+'</option>'}).join(""):'<option value="">'+dpNoOne(j)+'</option>')+'</select><button class="btn primary" data-dp="assign" data-jid="'+j.id+'">Assign</button></span>';
+  }else if(j.state==="offered"||(j.kind==="edrop"&&(j.state==="accepted"||j.state==="enroute"||j.state==="atmachine"))||(j.kind!=="edrop"&&j.state==="accepted"))
+    act+='<button class="btn" data-dp="reassign" data-jid="'+j.id+'" data-perm="dispatch.manage">Reassign</button>';
+  return act;
+}
+function dpCard(j){
+  var m=byId(j.mid),act=dpActions(j,m);
+  if(j.kind!=="edrop"&&dpLive(j))act+='<button class="btn" data-dp="stop" data-jid="'+j.id+'" data-perm="dispatch.manage">Stop dispatch</button>';
+  var pill=j.kind==="edrop"?'<span class="pill ed-'+j.state+'">'+ED_STATE[j.state]+'</span>':'<span class="pill dp-'+j.state+'">'+DP_STATE[j.state]+'</span>';
+  var what=j.kind==="service"?esc(j.issue||"Service task"):Math.floor(m.pct)+'% full';
+  return'<div class="edc dpc"><div class="edc-h"><div><b class="opendr" data-id="'+m.id+'" style="cursor:pointer">'+m.id+' · '+esc(m.game)+'</b><span class="sub">'+esc(m.zone)+', '+m.bank+' · '+what+'</span></div>'+pill+'</div>'+
+    '<div class="edc-meta"><span class="nchip '+(j.kind==="edrop"?"e":j.kind==="service"?"b":"t")+'">'+DP_KIND[j.kind]+'</span><span>· started '+fmtRel(dpT0(j))+'</span>'+(j.kind!=="edrop"&&j.tid?'<button class="lnk" data-na="task" data-tid="'+j.tid+'">Task '+j.tid+'</button>':'')+(j.kind==="edrop"?'<button class="lnk" data-ed="goto">Open eDrop</button>':'')+'</div>'+
+    '<div class="edwho">'+dpWhoHTML(j,m)+'</div><div class="edact">'+act+'</div></div>';
+}
+function renderDispatch(){
+  var st=dpStats(),c=DP.cfg,h="",live=dpAll().filter(dpLive);
+  h+='<div class="toolbar"><span class="clock">'+(c.on?"Every job is offered to the best person on shift, then the next, then a manager.":"Auto dispatch is switched off. Jobs are assigned by hand or by nearest-person assignment.")+'</span><span class="grow"></span></div>';
+  var mine=dpAll().filter(function(j){var o=dpPending(j);return o&&o.uid===meId})[0];
+  if(mine){
+    var mo=dpPending(mine),mm=byId(mine.mid);
+    h+='<div class="edoffer"><div><b>Dispatch offer for you</b><div class="sub2" style="margin:2px 0 0">'+DP_KIND[mine.kind]+' · '+mm.id+' · '+esc(mm.game)+', '+esc(mm.zone)+' · accept within '+Math.max(0,Math.ceil((mo.deadline-simMs)/60000))+' min</div></div>'+
+      '<div class="edact" style="margin:0"><button class="btn primary" data-dp="accept" data-jid="'+mine.id+'" data-perm="dispatch.respond">Accept</button><button class="btn" data-dp="decline" data-jid="'+mine.id+'" data-perm="dispatch.respond">Decline</button></div></div>';
+  }
+  h+='<div class="sumrow">'+
+   '<div class="sum"><div class="l">Offers waiting</div><div class="v" style="color:'+(st.live?'var(--warn)':'var(--ok)')+'">'+st.live+'</div><div class="s">Live right now</div></div>'+
+   '<div class="sum"><div class="l">Offers sent, last 24 hours</div><div class="v">'+st.sent+'</div><div class="s">Across all job types</div></div>'+
+   '<div class="sum"><div class="l">Offers accepted</div><div class="v">'+(st.rate===null?"—":st.rate+"%")+'</div><div class="s">Of offers answered or timed out</div></div>'+
+   '<div class="sum"><div class="l">Time to accept</div><div class="v">'+(st.avg?fmtMS(st.avg):"—")+'</div><div class="s">Average, offer to yes · '+st.esc+' sent to a manager</div></div></div>';
+  h+='<div class="edgrid">'+(live.length?live.map(dpCard).join(""):'<div class="empty" style="grid-column:1/-1">No offers waiting. New eDrops, full cans and service tasks are offered to the best person automatically.</div>')+'</div>';
+  function sw(label,sub,key){var v=key.indexOf("t-")===0?c.types[key.slice(2)]:c[key];return'<div class="swr"><span>'+label+'<small>'+sub+'</small></span><input type="checkbox" data-dpc="'+key+'"'+(v?" checked":"")+' aria-label="'+label+'"></div>'}
+  h+='<div class="rgrid"><div class="rcard" data-perm="settings"><h4>Auto dispatch settings</h4><div class="swl">'+
+    sw("Auto dispatch","Master switch for everything below","on")+
+    sw("Emergency drops (eDrop)","Offer each eDrop to a collector","t-edrop")+
+    sw("Critical collections","Automatic tasks for full cans","t-collection")+
+    sw("Service tasks","Automatic tasks for offline machines and faults","t-service")+
+    '</div><div class="form-g" style="margin-top:10px">'+
+    '<label>Accept within (minutes)<input type="number" data-dpn="acceptMin" min="1" max="60" value="'+c.acceptMin+'"></label>'+
+    '<label>Offers before a manager steps in<input type="number" data-dpn="maxOffers" min="1" max="10" value="'+c.maxOffers+'"></label></div>'+
+    '<p class="sub2" style="margin:10px 0 0">When a job type is switched off, it falls back to nearest-person assignment on the Automation page.</p></div>'+
+   '<div class="rcard"><h4>How auto dispatch picks someone</h4><div class="edrules">'+
+    '<div><b>1</b><span>Only people on shift with the right role: collectors for cans, technicians for faults</span></div>'+
+    '<div><b>2</b><span>Closest first: same zone, then the nearest zone</span></div>'+
+    '<div><b>3</b><span>Then the lightest workload, so nobody is buried</span></div>'+
+    '<div><b>4</b><span>Anyone already on an eDrop is skipped</span></div>'+
+    '<div><b>5</b><span>The best match gets a push notification and the accept window</span></div>'+
+    '<div><b>6</b><span>A decline or no answer moves it to the next best, and after '+c.maxOffers+' offers a Floor Manager is texted</span></div></div></div></div>';
+  var pp=dpPeople();
+  h+='<div class="rgrid"><div class="rcard"><h4>Dispatch log</h4><p class="sub2" style="margin-top:-6px">Every decision auto dispatch made, with the reason.</p>'+
+   (DP.log.length?DP.log.slice(0,12).map(function(l){return'<div class="shrow"><div>'+esc(l.text)+'<small>'+fmtDT(l.t)+'</small></div></div>'}).join(""):'<div class="sub2">Nothing yet.</div>')+'</div>'+
+   '<div class="rcard"><h4>How people respond</h4><p class="sub2" style="margin-top:-6px">Offers in the last day, by person.</p>'+
+   (pp.length?'<div class="tw"><table class="tbl"><thead><tr><th>Person</th><th>Offers</th><th>Accepted</th><th>Declined</th><th>No answer</th><th>Avg to accept</th></tr></thead><tbody>'+
+    pp.map(function(r){var u=userById(r.uid);return'<tr><td><b>'+esc(u?u.name:"Unknown")+'</b><span class="sub">'+esc(u?u.role:"")+'</span></td><td>'+r.n+'</td><td>'+r.acc+'</td><td>'+r.dec+'</td><td>'+r.none+'</td><td>'+(r.tn?fmtMS(r.ts/r.tn):"—")+'</td></tr>'}).join("")+'</tbody></table></div>':'<div class="sub2">No offers yet.</div>')+'</div></div>';
+  $("#dpBody").innerHTML=h;labelTbl($("#dpBody"));dpBadge();
+}
+function dpSet(el,type){
+  if(type==="chk"){var k=el.dataset.dpc;if(k.indexOf("t-")===0)DP.cfg.types[k.slice(2)]=el.checked;else DP.cfg[k]=el.checked;toast("Saved","ok")}
+  else{var n=el.dataset.dpn,v=+el.value,lim=DP_LIM[n];
+    if(lim&&v>=lim[0]&&v<=lim[1]){DP.cfg[n]=Math.round(v);toast("Saved","ok")}else toast("Enter a number from "+lim[0]+" to "+lim[1],"warn")}
+}
+function dpAction(el){
+  var a=el.dataset.dp,j=dpById(el.dataset.jid);if(!j)return;
+  var of=dpPending(j),meOffered=of&&of.uid===meId,live=j.kind==="edrop"?edActive(j):(j.state!=="done"&&j.state!=="cancelled");
+  if(!live)return;
+  if(a==="accept"&&meOffered&&can("dispatch.respond"))dpAccept(j,meId,"accept");
+  else if(a==="decline"&&meOffered&&can("dispatch.respond"))dpDecline(j,meId);
+  else if(a==="reassign"&&can("dispatch.manage"))dpReassign(j);
+  else if(a==="stop"&&can("dispatch.manage")&&j.kind!=="edrop")dpCancel(j);
+  else if(a==="assign"&&can("dispatch.manage")){var s=$("#dpSel-"+j.id),uid=s?+s.value:0;if(uid)dpAccept(j,uid,"manual");else toast(dpNoOne(j),"warn")}
+  else return;
+  refreshAll();renderCurrent();
+}
+function dpSeed(){
+  var cs=pool("collection").filter(function(u){return u.onShift!==false}),ts=pool("service").filter(function(u){return u.onShift!==false});
+  if(!cs.length||!ts.length)return;
+  var on=machines.filter(function(m){return !m.offline});
+  for(var i=7;i>=0;i--){
+    var kind=i%3===0?"service":"collection",pl=kind==="service"?ts:cs,m=on[(i*13+3)%on.length],u=pl[i%pl.length];
+    var t0=simMs-(0.8+i*2.4)*3600000,why="in "+(u.zone||m.zone)+", no open tasks";
+    var j={id:"DP-"+(DP.n++),kind:kind,mid:m.id,game:m.game,zone:m.zone,bank:m.bank,issue:kind==="service"?(i%2?"Machine offline":"Bill validator jam"):"Can full",state:"done",assignee:u.id,cur:null,offers:[],tm:{created:t0,offered:t0+3000},hist:[],tid:null,src:"auto",esc:false,sim:null};
+    var at=t0+3000;
+    if((i%4===1||i===6)&&pl.length>1){var o2=pl[(i+1)%pl.length];j.offers.push({uid:o2.id,at:at,deadline:null,result:i===6?"timeout":"declined",score:81,why:"in "+(o2.zone||m.zone),ansAt:i===6?null:at+40000});at+=i===6?600000:60000}
+    if(i===6&&pl.length>2){var o3=pl[(i+2)%pl.length];j.offers.push({uid:o3.id,at:at,deadline:null,result:"timeout",score:70,why:"in "+(o3.zone||m.zone),ansAt:null});at+=600000;j.esc=true;
+      j.offers.push({uid:u.id,at:at+90000,deadline:null,result:"manual",score:null,why:"Assigned by a manager",ansAt:at+90000});j.tm.accepted=at+90000}
+    else{var acc=at+(25+edRnd(i+21)*80)*1000;j.offers.push({uid:u.id,at:at,deadline:null,result:"accepted",score:92-i*3,why:why,ansAt:acc});j.tm.accepted=acc}
+    j.hist.push({t:t0,text:"Created"});j.hist.push({t:j.tm.accepted,text:u.name+" accepted"});
+    DP.list.unshift(j);
+    DP.log.push({t:j.tm.accepted,id:j.id,text:j.id+" on "+m.id+": "+u.name+(i===6?" assigned by hand after 2 offers":" accepted in "+fmtMS(j.tm.accepted-t0)),kind:"accept"});
+    DP.log.push({t:t0+3000,id:j.id,text:j.id+" on "+m.id+" ("+DP_KIND[kind].toLowerCase()+"): offered to "+(j.offers[0]?uname(j.offers[0].uid):u.name),kind:"dispatch"});
+  }
+}
+/* ================= eDrop (emergency drop) ================= */
+var ED={n:101,list:[],cfg:{auto:true,secAlert:true,escort:false,trigPct:95,trigMin:20,max:4,slaMin:20}};
+var ED_KEYS=["raised","offered","accepted","enroute","atmachine","dropped"];
+var ED_STEP={raised:"Raised",offered:"Offered",accepted:"Accepted",enroute:"On the way",atmachine:"At machine",dropped:"Dropped"};
+var ED_STATE={raised:"Raised",offered:"Offered",accepted:"Accepted",enroute:"On the way",atmachine:"At the machine",dropped:"Dropped",cancelled:"Cancelled",unassigned:"Needs a manager"};
+var ED_REASONS=["Can nearly full","Jackpot or bill surge","Machine stopped or can full","Security request","Other"];
+var ED_LIM={trigPct:[50,100],trigMin:[0,120],max:[1,20],slaMin:[5,240]};
+function edNum(ed){return parseInt(ed.id.slice(3),10)}
+function edActive(e){return e.state!=="dropped"&&e.state!=="cancelled"}
+function edFor(m){return ED.list.filter(function(e){return e.mid===m.id&&edActive(e)})[0]}
+function edById(id){return ED.list.filter(function(e){return e.id===id})[0]}
+function edTask(ed){return dpTask(ed)}
+function edSecurity(ed,m){
+  var so=users.filter(function(u){return u.active&&u.role==="Security Officer"&&u.onShift!==false});
+  if(ED.cfg.secAlert&&so.length){
+    so.forEach(function(u){sendMsg(u.id,"push","EMERGENCY DROP "+ed.id+" on "+m.id+" ("+m.zone+"): a can is being pulled now.");notifyUser(u.id,"Emergency drop raised",ed.id+" on "+m.id+" ("+m.zone+")",{mid:m.id})});
+    dpHist(ed,"Security alerted: "+so.map(function(u){return u.name}).join(", "));
+  }
+  if(ED.cfg.escort&&so.length){
+    var e=so[edNum(ed)%so.length];ed.escort=e.id;
+    sendMsg(e.id,"push","Escort needed for emergency drop "+ed.id+" on "+m.id+" ("+m.zone+").");
+    dpHist(ed,"Security escort: "+e.name);
+  }
+}
+function edRaise(m,o){
+  o=o||{};
+  var ed={id:"ED-"+(ED.n++),kind:"edrop",issue:"Emergency drop",mid:m.id,game:m.game,zone:m.zone,bank:m.bank,src:o.src||"manual",by:o.by||null,reason:o.reason||"Emergency drop",note:o.note||"",pct:Math.floor(m.pct),value:value(m),wasFull:!!m.full,state:"raised",assignee:null,cur:null,offers:[],tm:{raised:simMs},hist:[],tid:null,sim:null,esc:false,escort:null};
+  var ct=activeTask(m,"collection"),sla=ED.cfg.slaMin/60;
+  if(ct){
+    ct.priority="critical";ct.slaHrs=Math.min(ct.slaHrs,sla);ct.dueAt=Math.min(ct.dueAt,simMs+sla*3600000);ct.fRisk=false;ct.fBreach=false;
+    addHist(ct,"Upgraded to emergency drop "+ed.id);
+  }else{
+    ct=newTask({type:"collection",mid:m.id,issue:"Emergency drop",priority:"critical",uid:null,hrs:sla,quiet:true,notes:"Emergency drop "+ed.id+": "+ed.reason});
+  }
+  ct.edrop=ed.id;ed.tid=ct.id;
+  ED.list.unshift(ed);
+  dpHist(ed,"Raised "+(ed.src==="auto"?"automatically":"by "+uname(ed.by))+": "+ed.reason+" ("+ed.pct+"% full)");
+  dpLog(ed,ed.id+" raised on "+m.id+" ("+m.game+"): "+ed.reason,"raise");
+  ev("crit","Emergency drop "+ed.id+" raised for "+m.id+": "+ed.reason,m.id,"Emergency drop raised",null,ed.tid);
+  edSecurity(ed,m);
+  dpStart(ed);
+  dirty=true;return ed;
+}
+function edAutoTrigger(){
+  var act=ED.list.filter(edActive).length;if(act>=ED.cfg.max)return;
+  machines.forEach(function(m){
+    if(act>=ED.cfg.max||m.offline||edFor(m))return;
+    if(m.emptiedAt&&simMs-m.emptiedAt<20*60000)return;
+    var why=null;
+    if(m.full)why="Can is full";
+    else if(m.pct>=ED.cfg.trigPct)why="Can at "+Math.floor(m.pct)+"%";
+    else if(ED.cfg.trigMin>0&&m.pct>=80&&m.eta*60<=ED.cfg.trigMin)why="Full in about "+Math.max(1,Math.round(m.eta*60))+" min";
+    if(why){edRaise(m,{src:"auto",reason:why});act++}
+  });
+}
+function edPlan(ed){
+  var m=byId(ed.mid),u=userById(ed.assignee),zd=Math.abs(zoneIdx(u.zone||m.zone)-zoneIdx(m.zone)),k=edNum(ed);
+  ed.sim={enroute:simMs+(15+edRnd(k)*30)*1000};
+  ed.sim.atmachine=ed.sim.enroute+(60+zd*60+edRnd(k+1)*60)*1000;
+  ed.sim.dropped=ed.sim.atmachine+(45+edRnd(k+2)*60)*1000;
+}
+function edStep(ed,st){
+  var u=userById(ed.assignee),t=edTask(ed);
+  if(st==="enroute"){
+    ed.state="enroute";ed.tm.enroute=simMs;if(t&&isActive(t)&&t.status!=="inprogress")startTask(t,true);
+    dpHist(ed,u.name+" is on the way");dpLog(ed,ed.id+" on "+ed.mid+": "+u.name+" is on the way","step");
+  }else if(st==="atmachine"){
+    ed.state="atmachine";ed.tm.atmachine=simMs;
+    dpHist(ed,u.name+" is at the machine");dpLog(ed,ed.id+" on "+ed.mid+": "+u.name+" is at the machine","step");
+  }else if(st==="dropped")edFinish(ed,"collector");
+  dirty=true;
+}
+function edFinish(ed,how){
+  var m=byId(ed.mid),t=edTask(ed);
+  ed.state="dropped";ed.tm.dropped=simMs;ed.cur=null;ed.sim=null;
+  if(how==="collector"){if(t&&isActive(t))completeTask(t);else if(m&&m.bills>0)emptyCan(m,true)}
+  var took=fmtMS(simMs-ed.tm.raised);
+  dpHist(ed,how==="collector"?"Can dropped by "+uname(ed.assignee)+". Cash secured in "+took:"Can was emptied by someone else. Closed");
+  dpLog(ed,ed.id+" on "+ed.mid+": "+(how==="collector"?"can dropped, cash secured in "+took:"closed, can was emptied by someone else"),"done");
+  ev("ok","Emergency drop "+ed.id+" complete. "+ed.mid+" emptied"+(how==="collector"?" by "+uname(ed.assignee)+" in "+took:""),ed.mid,"Emergency drop complete",null,ed.tid);
+  dirty=true;
+}
+function edCancel(ed){
+  ed.state="cancelled";ed.cur=null;ed.sim=null;
+  var of=dpLast(ed);if(of&&of.result==="pending")of.result="cancelled";
+  dpHist(ed,"Cancelled by "+uname(meId));dpLog(ed,ed.id+" on "+ed.mid+": cancelled by "+uname(meId),"cancel");
+  ev("info","Emergency drop "+ed.id+" on "+ed.mid+" was cancelled. The collection task stays open",ed.mid,"Emergency drop cancelled",null,ed.tid);
+  dirty=true;
+}
+function edTick(){
+  if(ED.cfg.auto)edAutoTrigger();
+  ED.list.slice().forEach(function(ed){
+    if(!edActive(ed))return;
+    var m=byId(ed.mid);
+    if(m&&m.emptiedAt&&m.emptiedAt>=ed.tm.raised){edFinish(ed,"external");return}
+    if(ed.assignee&&ed.assignee!==meId&&(ed.state==="accepted"||ed.state==="enroute"||ed.state==="atmachine")){
+      if(!ed.sim)edPlan(ed);
+      if(ed.state==="accepted"&&simMs>=ed.sim.enroute)edStep(ed,"enroute");
+      if(ed.state==="enroute"&&simMs>=ed.sim.atmachine)edStep(ed,"atmachine");
+      if(ed.state==="atmachine"&&simMs>=ed.sim.dropped)edStep(ed,"dropped");
+    }
+  });
+  edBadge();
+}
+function edBadge(){var n=ED.list.filter(edActive).length,e=$("#navE");if(e){e.style.display=n?"":"none";e.textContent=n}}
+function edStats(){
+  var done=ED.list.filter(function(e){return e.state==="dropped"&&e.tm.accepted&&e.tm.dropped});
+  function avg(f){return done.length?done.reduce(function(a,e){return a+f(e)},0)/done.length:0}
+  var day=simMs-24*3600000,d24=ED.list.filter(function(e){return e.tm.raised>=day});
+  return{active:ED.list.filter(edActive).length,
+    waiting:ED.list.filter(function(e){return e.state==="offered"||e.state==="unassigned"||e.state==="raised"}).length,
+    acc:avg(function(e){return e.tm.accepted-e.tm.raised}),sec:avg(function(e){return e.tm.dropped-e.tm.raised}),
+    n24:d24.length,before:d24.filter(function(e){return e.state==="dropped"&&!e.wasFull}).length,done:done.length};
+}
+function edWho(ed){
+  var of=dpPending(ed);
+  if(of)return"Offered to "+uname(of.uid);
+  if(ed.state==="unassigned")return"Waiting for a manager";
+  if(ed.assignee)return uname(ed.assignee);
+  return"Waiting";
+}
+function edSteps(ed){
+  var h='<div class="edsteps">',open=-1;
+  ED_KEYS.forEach(function(k,i){
+    var done=!!ed.tm[k],cur=false;
+    if(!done&&open<0){open=i;cur=true}
+    h+='<div class="'+(done?"done":cur?(ed.state==="unassigned"?"warn":"cur"):"")+'"><i></i>'+ED_STEP[k]+'<small>'+(done?fmtTime(ed.tm[k]):"&nbsp;")+'</small></div>';
+  });
+  return h+'</div>';
+}
+function edCard(ed){
+  var m=byId(ed.mid),act=dpActions(ed,m);
+  if(ed.assignee===meId){
+    if(ed.state==="accepted")act+='<button class="btn primary" data-ed="enroute" data-eid="'+ed.id+'" data-perm="edrop.respond">I am on my way</button>';
+    if(ed.state==="enroute")act+='<button class="btn primary" data-ed="atmachine" data-eid="'+ed.id+'" data-perm="edrop.respond">I am at the machine</button>';
+    if(ed.state==="atmachine")act+='<button class="btn primary" data-ed="dropped" data-eid="'+ed.id+'" data-perm="edrop.respond">Can dropped</button>';
+  }
+  act+='<button class="btn" data-ed="cancel" data-eid="'+ed.id+'" data-perm="edrop.cancel">Cancel eDrop</button>';
+  return'<div class="edc"><div class="edc-h"><div><b class="opendr" data-id="'+m.id+'" style="cursor:pointer">'+m.id+' · '+esc(m.game)+'</b><span class="sub">'+esc(m.zone)+', '+m.bank+' · '+Math.floor(m.pct)+'% full · about '+money(value(m))+' in the can</span></div><span class="pill ed-'+ed.state+'">'+ED_STATE[ed.state]+'</span></div>'+
+    '<div class="edc-meta"><span class="nchip'+(ed.src==="auto"?" t":"")+'">'+(ed.src==="auto"?"Auto":"Manual")+'</span><span>'+esc(ed.reason)+'</span><span>· raised '+fmtRel(ed.tm.raised)+'</span>'+(ed.tid?'<button class="lnk" data-na="task" data-tid="'+ed.tid+'">Task '+ed.tid+'</button>':'')+(ed.escort?'<span>· Escort: '+esc(uname(ed.escort))+'</span>':'')+'</div>'+
+    (ed.note?'<div class="sub2" style="margin:0 0 6px">Note: '+esc(ed.note)+'</div>':'')+
+    edSteps(ed)+'<div class="edwho">'+dpWhoHTML(ed,m)+'</div><div class="edact">'+act+'</div></div>';
+}
+function renderEdrop(){
+  var st=edStats(),act=ED.list.filter(edActive),c=ED.cfg,h="";
+  h+='<div class="toolbar"><span class="clock">An eDrop is a can that must be emptied now. Who goes is decided by Auto Dispatch.</span><span class="grow"></span>'+
+    '<button class="btn" data-ed="surge" data-perm="settings">Run a demo surge</button>'+
+    '<button class="btn primary" data-ed="new" data-perm="edrop.raise">Raise an eDrop</button></div>';
+  var mine=act.filter(function(e){var o=dpPending(e);return o&&o.uid===meId})[0];
+  if(mine){
+    var mo=dpPending(mine),mm=byId(mine.mid);
+    h+='<div class="edoffer"><div><b>Emergency drop for you</b><div class="sub2" style="margin:2px 0 0">'+mm.id+' · '+esc(mm.game)+', '+esc(mm.zone)+' · '+Math.floor(mm.pct)+'% full · accept within '+Math.max(0,Math.ceil((mo.deadline-simMs)/60000))+' min</div></div>'+
+      '<div class="edact" style="margin:0"><button class="btn primary" data-dp="accept" data-jid="'+mine.id+'" data-perm="dispatch.respond">Accept</button><button class="btn" data-dp="decline" data-jid="'+mine.id+'" data-perm="dispatch.respond">Decline</button></div></div>';
+  }
+  h+='<div class="sumrow">'+
+   '<div class="sum"><div class="l">Active eDrops</div><div class="v" style="color:'+(st.active?'var(--crit)':'var(--ok)')+'">'+st.active+'</div><div class="s">'+st.waiting+' waiting for a collector</div></div>'+
+   '<div class="sum"><div class="l">Time to accept</div><div class="v">'+(st.done?fmtMS(st.acc):"—")+'</div><div class="s">Average, raised to a collector saying yes</div></div>'+
+   '<div class="sum"><div class="l">Time to secure the cash</div><div class="v">'+(st.done?fmtMS(st.sec):"—")+'</div><div class="s">Average, raised to can dropped</div></div>'+
+   '<div class="sum"><div class="l">eDrops, last 24 hours</div><div class="v">'+st.n24+'</div><div class="s">'+st.before+' cans emptied before they filled</div></div></div>';
+  h+='<div class="edgrid">'+(act.length?act.map(edCard).join(""):'<div class="empty" style="grid-column:1/-1">No emergency drops right now. When a can reaches '+c.trigPct+'% or is about to fill, one is raised automatically.</div>')+'</div>';
+  function sw(label,sub,key){return'<div class="swr"><span>'+label+'<small>'+sub+'</small></span><input type="checkbox" data-edc="'+key+'"'+(c[key]?" checked":"")+' aria-label="'+label+'"></div>'}
+  h+='<div class="rgrid"><div class="rcard" data-perm="settings"><h4>eDrop settings</h4><div class="swl">'+
+    sw("Raise eDrops automatically","When a can reaches the trigger level or is about to fill","auto")+
+    sw("Alert Security when one is raised","Push notification to Security Officers on shift","secAlert")+
+    sw("Assign a Security escort","Names an officer on the eDrop and notifies them","escort")+
+    '</div><div class="form-g" style="margin-top:10px">'+
+    '<label>Trigger at fill level (%)<input type="number" data-edn="trigPct" min="50" max="100" value="'+c.trigPct+'"></label>'+
+    '<label>Or full within (minutes)<input type="number" data-edn="trigMin" min="0" max="120" value="'+c.trigMin+'"></label>'+
+    '<label>Most eDrops at once<input type="number" data-edn="max" min="1" max="20" value="'+c.max+'"></label>'+
+    '<label>eDrop SLA (minutes)<input type="number" data-edn="slaMin" min="5" max="240" value="'+c.slaMin+'"></label></div>'+
+    '<p class="sub2" style="margin:10px 0 0">Who goes is set on the <button class="lnk" data-ed="godp">Auto Dispatch</button> page.</p></div>'+
+   '<div class="rcard"><h4>How an eDrop works</h4><div class="edrules">'+
+    '<div><b>1</b><span>Raised automatically at '+c.trigPct+'% or when a can is about to fill, or by a manager in one tap</span></div>'+
+    '<div><b>2</b><span>A critical collection task is created or upgraded, with a '+c.slaMin+' minute SLA</span></div>'+
+    '<div><b>3</b><span>Auto Dispatch finds a collector and waits for a yes</span></div>'+
+    '<div><b>4</b><span>The collector goes: on the way, at the machine, can dropped</span></div>'+
+    '<div><b>5</b><span>The can is pulled into custody, with seals and two-person sign-off at the count room</span></div>'+
+    '<div><b>6</b><span>Time to secure the cash is recorded for every eDrop</span></div></div></div></div>';
+  var past=ED.list.filter(function(e){return !edActive(e)}).slice(0,8);
+  h+='<div class="rcard"><h4>Recent emergency drops</h4><p class="sub2" style="margin-top:-6px">Finished and cancelled eDrops.</p>';
+  h+=past.length?'<div class="tw"><table class="tbl"><thead><tr><th>eDrop</th><th>Machine</th><th>Collector</th><th>To accept</th><th>To secure</th><th>Offers</th></tr></thead><tbody>'+
+   past.map(function(e){return'<tr><td><b>'+e.id+'</b><span class="sub">'+esc(e.reason)+'</span></td><td>'+e.mid+'<span class="sub">'+esc(e.zone)+'</span></td><td>'+(e.assignee?esc(uname(e.assignee)):"—")+'</td><td>'+(e.tm.accepted?fmtMS(e.tm.accepted-e.tm.raised):"—")+'</td><td>'+(e.state==="dropped"&&e.assignee?fmtMS(e.tm.dropped-e.tm.raised):e.state==="cancelled"?"Cancelled":"Closed")+'</td><td>'+e.offers.length+'</td></tr>'}).join("")+'</tbody></table></div>':'<div class="sub2">None yet.</div>';
+  h+='</div>';
+  $("#edBody").innerHTML=h;labelTbl($("#edBody"));edBadge();
+}
+/* ---- eDrop actions ---- */
+function openEd(mid){
+  closeAll();
+  var free=machines.filter(function(m){return !m.offline&&!edFor(m)});
+  $("#edList").innerHTML=free.map(function(m){return'<option value="'+m.id+'">'+esc(m.game+" · "+m.zone)+'</option>'}).join("");
+  $("#edReason").innerHTML=ED_REASONS.map(function(r){return'<option>'+esc(r)+'</option>'}).join("");
+  $("#edMach").value=mid||"";$("#edNote").value="";$("#edErr").textContent="";
+  $("#mEd").classList.add("show");$("#scrim").classList.add("show");
+}
+function edSave(){
+  var err=$("#edErr"),v=$("#edMach").value.trim(),m=byId(v);
+  if(!m){err.textContent="Pick a machine from the list.";return}
+  if(m.offline){err.textContent=m.id+" is offline. Create a service task instead.";return}
+  if(edFor(m)){err.textContent=m.id+" already has an active emergency drop ("+edFor(m).id+").";return}
+  var r=$("#edReason").value,note=$("#edNote").value.trim();
+  closeModals();
+  edRaise(m,{src:"manual",by:meId,reason:r,note:note});
+  toast("Emergency drop raised for "+m.id+". "+(dpEnabled("edrop")?"Auto dispatch is finding a collector":"Auto dispatch is off for eDrops, assign a collector"),"ok");
+  refreshAll();if(canPage("edrop"))showPage("edrop");
+}
+function edSurge(){
+  var want=["Main Floor","Main Floor","Pavilion"],made=[];
+  want.forEach(function(z){
+    var m=machines.filter(function(x){return x.zone===z&&!x.offline&&!x.full&&!edFor(x)&&made.indexOf(x)<0&&x.pct<90})[0];
+    if(m){m.bills=Math.round(m.cap*0.96);derive(m);made.push(m)}
+  });
+  dirty=true;refreshAll();
+  toast(made.length?"Surge on "+made.map(function(m){return m.id}).join(", ")+". "+(ED.cfg.auto?"eDrops will be raised in a moment":"Auto eDrop is off, raise them by hand"):"No machine was free for the surge","ok");
+}
+function edSet(el,type){
+  if(type==="chk"){ED.cfg[el.dataset.edc]=el.checked;toast("Saved","ok")}
+  else{var k=el.dataset.edn,v=+el.value,lim=ED_LIM[k];
+    if(lim&&v>=lim[0]&&v<=lim[1]){ED.cfg[k]=Math.round(v);toast("Saved","ok")}else toast("Enter a number from "+lim[0]+" to "+lim[1],"warn")}
+}
+function edAction(el){
+  var a=el.dataset.ed,ed=el.dataset.eid?edById(el.dataset.eid):null;
+  if(a==="new"){if(can("edrop.raise"))openEd();return}
+  if(a==="raise"){if(can("edrop.raise"))openEd(el.dataset.mid);return}
+  if(a==="save"){edSave();return}
+  if(a==="goto"){if(!canPage("edrop")){toast("Your role can't open that screen","warn");return}closeAll();showPage("edrop");return}
+  if(a==="godp"){if(!canPage("dispatch")){toast("Your role can't open that screen","warn");return}showPage("dispatch");return}
+  if(a==="surge"){if(can("settings"))edSurge();return}
+  if(!ed||!edActive(ed))return;
+  var meAssigned=ed.assignee===meId;
+  if((a==="enroute"||a==="atmachine"||a==="dropped")&&meAssigned&&can("edrop.respond"))edStep(ed,a);
+  else if(a==="cancel"&&can("edrop.cancel"))edCancel(ed);
+  else return;
+  refreshAll();renderCurrent();
+}
+function edBtn(m){
+  var e=edFor(m);
+  return e?'<button class="btn" data-ed="goto">View '+e.id+'</button>':'<button class="btn" data-ed="raise" data-mid="'+m.id+'" data-perm="edrop.raise">Emergency drop</button>';
+}
+function edBlock(m){
+  var e=edFor(m);if(!e)return"";
+  return'<div class="edblk"><h5>Emergency drop '+e.id+'</h5><div><span class="pill ed-'+e.state+'">'+ED_STATE[e.state]+'</span> <span>'+esc(edWho(e))+'</span></div></div>';
+}
+function edSeed(){
+  var cs=pool("collection").filter(function(u){return u.onShift!==false});if(!cs.length)return;
+  var on=machines.filter(function(m){return !m.offline}),rs=["Can at 97%","Jackpot or bill surge","Can nearly full","Full in about 14 min","Can is full","Security request"];
+  for(var i=5;i>=0;i--){
+    var m=on[(i*11+7)%on.length],u=cs[i%cs.length],raised=simMs-(1.2+i*3.9)*3600000;
+    var acc=(18+edRnd(i+3)*70)*1000;if(i===2)acc+=600000;
+    var drop=acc+(240+edRnd(i+9)*300)*1000,why="in "+(u.zone||m.zone)+", no open tasks";
+    var ed={id:"ED-"+(ED.n++),kind:"edrop",issue:"Emergency drop",mid:m.id,game:m.game,zone:m.zone,bank:m.bank,src:i%3===1?"manual":"auto",by:i%3===1?2:null,reason:rs[i],note:"",pct:96+(i%3),value:value(m),wasFull:i===4,state:"dropped",assignee:u.id,cur:null,offers:[],
+      tm:{raised:raised,offered:raised+4000,accepted:raised+acc,enroute:raised+acc+20000,atmachine:raised+acc+130000,dropped:raised+drop},hist:[],tid:null,sim:null,esc:false,escort:null};
+    if(i===2&&cs.length>1){var o2=cs[(i+1)%cs.length];ed.offers.push({uid:o2.id,at:raised+4000,deadline:null,result:"timeout",score:78,why:"in "+(o2.zone||m.zone),ansAt:null})}
+    ed.offers.push({uid:u.id,at:raised+(i===2?604000:4000),deadline:null,result:"accepted",score:92-i*3,why:why,ansAt:raised+acc});
+    ed.hist.push({t:raised,text:"Raised "+(ed.src==="auto"?"automatically":"by "+uname(2))+": "+ed.reason});
+    ed.hist.push({t:raised+acc,text:u.name+" accepted"});ed.hist.push({t:raised+drop,text:"Can dropped by "+u.name});
+    ED.list.unshift(ed);
+    DP.log.push({t:raised+acc,id:ed.id,text:ed.id+" on "+m.id+": "+u.name+" accepted in "+fmtMS(acc),kind:"accept"});
+    DP.log.push({t:raised+4000,id:ed.id,text:ed.id+" on "+m.id+" (emergency drop): offered to "+u.name+" ("+why+")",kind:"dispatch"});
+  }
+}
+function dpSeedAll(){edSeed();dpSeed();DP.log.sort(function(a,b){return b.t-a.t})}
 
 /* ================= wiring ================= */
 document.addEventListener("click",function(e){
@@ -4248,6 +4867,8 @@ document.addEventListener("click",function(e){
     if(ra==="new")openRoleEditor(-1);else if(ra==="edit")openRoleEditor(ri);else if(ra==="preview")previewRole(ri);else if(ra==="del")deleteRole(ri);
     return}
   var pmb=t.closest("[data-pm]");if(pmb){toggleRolePerm(+pmb.dataset.pm,pmb.dataset.pt,pmb.dataset.pk);return}
+  var edb=t.closest("[data-ed]");if(edb){edAction(edb);return}
+  var dpb=t.closest("[data-dp]");if(dpb){dpAction(dpb);return}
   var tx=t.closest("[data-tx]");
   if(tx){tx.closest(".toast").remove();return}
   var tl=t.closest(".toast.link");
@@ -4428,6 +5049,10 @@ document.addEventListener("change",function(e){
   else if(t.id==="roCopy"){var src=ROLE_DEFS[+t.value];if(src)fillRoleChecks(src.locked?ALLP:src.pages,src.locked?ALLA:src.acts);else fillRoleChecks([],[])}
   else if(t.dataset&&t.dataset.au){auAction(t,"chk")}
   else if(t.dataset&&t.dataset.aun){auAction(t,"num")}
+  else if(t.dataset&&t.dataset.edc){edSet(t,"chk")}
+  else if(t.dataset&&t.dataset.edn){edSet(t,"num")}
+  else if(t.dataset&&t.dataset.dpc){dpSet(t,"chk")}
+  else if(t.dataset&&t.dataset.dpn){dpSet(t,"num")}
   else if(t.dataset&&t.dataset.uz){auAction(t,"zone")}
   else if(t.id==="naType")naFill();
   else if(t.id==="naPrio")naSla();
@@ -4569,6 +5194,7 @@ $("#nSnd").addEventListener("change",function(e){NS.sound=e.target.checked;if(NS
     notifs.unshift({id:nid++,level:"info",title:"New comment on "+n3.id,text:tech[0].name+": On site now. The switch port looks faulty, swapping the cable...",mid:n3.mid,tid:null,noteId:n3.id,to:mgr.id,t:simMs-20*60000,read:false});
   }
 })();
+dpSeedAll();
 seedCash();
 applyRole();
 renderKPIs();renderChips();renderBoard();renderTicker();renderBell();
